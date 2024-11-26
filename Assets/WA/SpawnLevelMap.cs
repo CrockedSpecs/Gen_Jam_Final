@@ -6,12 +6,15 @@ public class SpawnLevelMap : MonoBehaviour
     //Declarations
     private int biomas;
     [SerializeField] private List<GameObject> spawns;
-    [SerializeField] private List<GameObject> levelMaps;
+    [SerializeField] private List<GameObject> levelKingdomMaps;
+    [SerializeField] private List<GameObject> levelVikingMaps;
+    [SerializeField] private List<GameObject> levelCityMaps;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SelectLevelMaps();
+        biomas = 1;
     }
 
     // Update is called once per frame
@@ -32,22 +35,13 @@ public class SpawnLevelMap : MonoBehaviour
 
                     break;
                 case 1:
-                    Instantiate(levelMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
+                    Instantiate(levelKingdomMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
                 case 2:
-                    Instantiate(levelMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
+                    Instantiate(levelVikingMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
                 case 3:
-                    Instantiate(levelMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
-                    break;
-                case 4:
-                    Instantiate(levelMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
-                    break;
-                case 5:
-                    Instantiate(levelMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
-                    break;
-                case 6:
-                    Instantiate(levelMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
+                    Instantiate(levelCityMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
             } 
         }     
