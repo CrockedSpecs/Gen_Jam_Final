@@ -146,7 +146,11 @@ MonoBehaviour:
   - {fileID: 8680622043110157262}
   - {fileID: 386642847657506081}
   - {fileID: 4659785083439677393}
-  levelMaps: []
+  levelKingdomMaps:
+  - {fileID: 4200958414024098179, guid: a92caf7dce88e5649906cbec8b1c47f4, type: 3}
+  - {fileID: 4200958414024098179, guid: a92caf7dce88e5649906cbec8b1c47f4, type: 3}
+  levelVikingMaps: []
+  levelCityMaps: []
 --- !u!1 &8680622043110157262
 GameObject:
   m_ObjectHideFlags: 0

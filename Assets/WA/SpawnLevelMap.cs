@@ -14,7 +14,6 @@ public class SpawnLevelMap : MonoBehaviour
     void Start()
     {
         SelectLevelMaps();
-        biomas = 1;
     }
 
     // Update is called once per frame
@@ -25,25 +24,28 @@ public class SpawnLevelMap : MonoBehaviour
 
     private void SelectLevelMaps()
     {
-        int index = 0;
-        while(index < spawns.Count)
+        int levelMapsIndex = 0;
+
+        for (int index = 0; index < spawns.Count; index++)
         {
-            int levelMapsIndex = Random.Range(0, spawns.Count);
             switch (biomas)
             {
                 default:
 
                     break;
-                case 1:
+                case 0:
+                    levelMapsIndex = Random.Range(0, levelKingdomMaps.Count);
                     Instantiate(levelKingdomMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
-                case 2:
+                case 1:
+                    levelMapsIndex = Random.Range(0, levelVikingMaps.Count);
                     Instantiate(levelVikingMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
-                case 3:
+                case 2:
+                    levelMapsIndex = Random.Range(0, levelCityMaps.Count);
                     Instantiate(levelCityMaps[levelMapsIndex], spawns[index].transform.position, spawns[index].transform.rotation);
                     break;
-            } 
+            }
         }     
     }
 }
