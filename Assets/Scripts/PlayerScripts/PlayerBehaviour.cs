@@ -7,32 +7,49 @@ public class PlayerBehaviour : MonoBehaviour
 
     private Rigidbody rb;
     private Camera cam;
+    private PlayerAnimationController animationController;
 
-    public Vector3 mousePos;
-    public bool aiming;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        animationController = GetComponent<PlayerAnimationController>();
+
+        if (animationController == null)
+        {
+            Debug.LogError("PlayerAnimationController no encontrado en el GameObject.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerMovement();
         Aiming();
-
     }
 
     void PlayerMovement()
     {
+        // Obtener entrada de movimiento
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
-        rb.MovePosition(rb.position +  movement * _moveSpeed * Time.deltaTime);
 
+        // Mover al jugador
+        rb.MovePosition(rb.position + movement * _moveSpeed * Time.deltaTime);
+
+        // Calcular la dirección del movimiento
+        bool isMoving = movement.magnitude > 0.1f;
+        bool isMovingForward = movement.z > 0.1f; // Se está moviendo hacia adelante
+        bool isMovingBackward = movement.z < -0.1f; // Se está moviendo hacia atrás
+
+        // Actualizar el estado en el controlador de animación
+        if (animationController != null)
+        {
+            animationController.SetMovementDirection(isMoving, isMovingForward, isMovingBackward);
+        }
+
+        // Debug para verificar si el movimiento está detectado
+        Debug.Log("Movimiento: " + isMoving + ", Hacia adelante: " + isMovingForward + ", Hacia atrás: " + isMovingBackward);
     }
-
-    
 
     void Aiming()
     {
@@ -40,24 +57,22 @@ public class PlayerBehaviour : MonoBehaviour
         {
             cam = Camera.main;
         }
-        // Obtener la posición del mouse en la pantalla
+
         Vector3 mousePos = Input.mousePosition;
-        // Crear un rayo desde la posición del mouse
         Ray ray = cam.ScreenPointToRay(mousePos);
-        // Crear un plano horizontal (Y=0)
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float distance;
-        // Verificar si el rayo intersecta el plano
+
         if (groundPlane.Raycast(ray, out distance))
         {
-            // Obtener el punto en el mundo donde intersecta el rayo
             Vector3 point = ray.GetPoint(distance);
-            // Calcular la dirección hacia el punto objetivo
             Vector3 direction = point - transform.position;
-            direction.y = 0; // Evitar rotación en los ejes X y Z
-            // Aplicar la rotación al Rigidbody
+            direction.y = 0;
+
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * 25f));
         }
     }
 }
+
+
