@@ -27,7 +27,7 @@ public class BallsWall : MonoBehaviour
 
     private void OnEnable()
     {
-        if (skillLevel < 3)
+        if (skillLevel < 4)
         {
             UpdateSkill();
         }
@@ -44,16 +44,15 @@ public class BallsWall : MonoBehaviour
                 break;
             case 1:
                 balls.Add(Instantiate(ball, transform.position + Vector3.right * 3, ball.transform.rotation, transform));
-                balls.Add(Instantiate(ball, transform.position + Vector3.left * 3, ball.transform.rotation, transform));
                 break;
             case 2:
-                
-                ballsDamage = 2;
+                balls.Add(Instantiate(ball, transform.position + Vector3.right * 3, ball.transform.rotation, transform));
                 break;
             case 3:
-                ballsNumber = 4;
                 balls.Add(Instantiate(ball, transform.position + Vector3.right * 3, ball.transform.rotation, transform));
-                balls.Add(Instantiate(ball, transform.position + Vector3.left * 3, ball.transform.rotation, transform));
+                break;
+            case 4:
+                balls.Add(Instantiate(ball, transform.position + Vector3.right * 3, ball.transform.rotation, transform));
                 break;
         }
     }

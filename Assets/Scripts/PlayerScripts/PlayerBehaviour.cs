@@ -48,7 +48,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         // Debug para verificar si el movimiento está detectado
-        Debug.Log("Movimiento: " + isMoving + ", Hacia adelante: " + isMovingForward + ", Hacia atrás: " + isMovingBackward);
     }
 
     void Aiming()

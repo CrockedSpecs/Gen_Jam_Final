@@ -147,8 +147,10 @@ MonoBehaviour:
   - {fileID: 386642847657506081}
   - {fileID: 4659785083439677393}
   levelKingdomMaps:
-  - {fileID: 4200958414024098179, guid: a92caf7dce88e5649906cbec8b1c47f4, type: 3}
-  - {fileID: 4200958414024098179, guid: a92caf7dce88e5649906cbec8b1c47f4, type: 3}
+  - {fileID: 2265496034120763181, guid: cef5799533362c2419ee689535c94a1c, type: 3}
+  - {fileID: 1607898746094828901, guid: fa6293f0bfd6cfc4abdc50e644995047, type: 3}
+  - {fileID: 541968895691760632, guid: 8027ef85772d538459a6c319369a06a1, type: 3}
+  - {fileID: 5844213033752540872, guid: 64216a52fe572844caacd95e29af1317, type: 3}
   levelVikingMaps: []
   levelCityMaps: []
 --- !u!1 &8680622043110157262
