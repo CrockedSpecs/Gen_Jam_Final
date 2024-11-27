@@ -44,6 +44,5 @@ public class PlayerAnimationController : MonoBehaviour
         }
 
         // Debug para verificar la dirección del movimiento
-        Debug.Log("isMovingForward: " + isMovingForward + ", isMovingBackward: " + isMovingBackward);
     }
 }

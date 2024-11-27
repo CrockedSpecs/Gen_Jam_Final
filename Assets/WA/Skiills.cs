@@ -10,7 +10,7 @@ public class Skiills : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InvokeRepeating("LevelUpSkill", 5, 60);
     }
 
     // Update is called once per frame
@@ -19,8 +19,9 @@ public class Skiills : MonoBehaviour
         
     }
 
-    public void LevelUpSkill(int indexSkills)
+    public void LevelUpSkill()
     {
+        int indexSkills = 0;
         switch (skill)
         {
             default:
