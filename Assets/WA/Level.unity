@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &198436005 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3597959036597694121, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
-  m_PrefabInstance: {fileID: 261112186}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &261112186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2758052884115090547, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3597959036597694121, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -176,6 +175,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6944922063860862651, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250545976183853325, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 9109666361996655518, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
       propertyPath: m_Constraints
       value: 80
@@ -184,13 +191,16 @@ PrefabInstance:
     - {fileID: 5019011285605167850, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3597959036597694121, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8058291629630671799, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1153045916}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7250545976183853325, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 584369245}
+    - targetCorrespondingSourceObject: {fileID: 7250545976183853325, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 584369251}
   m_SourcePrefab: {fileID: 100100000, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
 --- !u!1 &480511562
 GameObject:
@@ -269,6 +279,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.97, z: 0}
+--- !u!4 &584369246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8058291629630671799, guid: e9f02ff0a8d653149995502568b275c2, type: 3}
+  m_PrefabInstance: {fileID: 261112186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &584369251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584369243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418a1df6c5a9b8547bbc6dd53e0cbf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 8445963295418156454, guid: d4a88f6ccf5cab445840e674c5331192, type: 3}
 --- !u!1 &846121769
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,12 +500,12 @@ Transform:
   m_GameObject: {fileID: 1153045915}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.621, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2077220358}
-  m_Father: {fileID: 198436005}
+  m_Father: {fileID: 584369246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1153045917
 MonoBehaviour:
@@ -792,6 +820,7 @@ GameObject:
   - component: {fileID: 1734785590}
   - component: {fileID: 1734785589}
   - component: {fileID: 1734785592}
+  - component: {fileID: 1734785593}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1012,6 +1041,19 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &1734785593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734785588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04a1280583ebeb4da3c4b3280849f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerFollow: {fileID: 0}
 --- !u!1 &2077220357
 GameObject:
   m_ObjectHideFlags: 0
